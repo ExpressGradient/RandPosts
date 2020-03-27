@@ -60,7 +60,7 @@ class ProfileRoute extends StatelessWidget {
           ),
           floatingActionButton: FloatingActionButton(
             child: Icon(Icons.edit, color: Color(0xff000070), size: 30.0),
-            onPressed: () {},
+            onPressed: () => Navigator.pushNamed(context, "/profile/edit"),
             backgroundColor: Colors.white,
           ),
           floatingActionButtonLocation: FloatingActionButtonLocation.endTop,

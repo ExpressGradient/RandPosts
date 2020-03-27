@@ -19,6 +19,7 @@ class LoginRoute extends StatelessWidget {
           body: Center(
             child: Column(
               children: <Widget>[
+                Title(),
                 LoginButton(),
                 Padding(padding: const EdgeInsets.symmetric(vertical: 12.0)),
                 Text("For first time users", style: TextStyle(fontFamily: "IBMPlexSans", fontSize: 15.0, color: Color(0xff000070))),
@@ -29,6 +30,16 @@ class LoginRoute extends StatelessWidget {
           )
         );
       },
+    );
+  }
+}
+
+class Title extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Text("RandPosts", style: TextStyle(fontFamily: "IBMPlexSans", color: Color(0xff000070), fontSize: 40.0, fontWeight: FontWeight.w600)),
+      margin: const EdgeInsets.only(bottom: 100.0)
     );
   }
 }
