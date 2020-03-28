@@ -6,7 +6,6 @@ class ProfileRoute extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
     return Consumer<LoginInfo>(
       builder: (BuildContext context, LoginInfo loginInfo, Widget child) {
         return Scaffold(

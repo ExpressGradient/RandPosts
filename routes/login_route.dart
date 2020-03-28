@@ -74,7 +74,7 @@ class LoginButton extends StatelessWidget {
         backgroundColor: Color(0xff000070)
       ));
       print(loginInfo.userData);
-      Future.delayed(Duration(seconds: 2), () => loginInfo.changeLoginStatus());
+      Future.delayed(Duration(seconds: 2), () => loginInfo.loggedIn());
     } else {
       Scaffold.of(context).showSnackBar(SnackBar(
         content: Text("Login failed, try registering first", style: TextStyle(fontFamily: "IBMPlexSans", fontSize: 20.0, color: Colors.white)),
@@ -134,7 +134,7 @@ class RegisterButton extends StatelessWidget {
         content: Text("Registration Successful", style: TextStyle(fontFamily: "IBMPlexSans", fontSize: 20.0, color: Colors.white)),
         backgroundColor: Color(0xff000070),
       ));
-      Future.delayed(Duration(seconds: 2), () => loginInfo.changeLoginStatus());
+      Future.delayed(Duration(seconds: 2), () => loginInfo.loggedIn());
     }
     else {
       Scaffold.of(context).showSnackBar(SnackBar(

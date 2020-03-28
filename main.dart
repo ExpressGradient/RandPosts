@@ -26,7 +26,44 @@ class MyApp extends StatelessWidget {
 class LoginInfo extends ChangeNotifier {
   bool _isLoggedIn = false;
   bool get loginStatus => _isLoggedIn;
-  
+  void loggedIn() {
+    _isLoggedIn = true;
+    notifyListeners();
+  }
+
+  void loggedOut() {
+    _isLoggedIn = false;
+    notifyListeners();
+  }
+
+  List<String> _appBarTitles = ["Home", "Search", "Notifications"];
+  int titleIndex = 0;
+  String getAppBarTitle() => _appBarTitles[titleIndex];
+  void toggleTitleIndex(int index) {
+    titleIndex = index;
+    notifyListeners();
+  }
+
+  List<Color> _navBarIconColors = [Color(0xff000070), Colors.white, Colors.white];
+  List<Color> get navBarIconColors => _navBarIconColors;
+  void toggleIconColor(int index) {
+    switch(index) {
+      case 0: {
+        _navBarIconColors = [Color(0xff000070), Colors.white, Colors.white];
+      }
+      break;
+      case 1: {
+        _navBarIconColors = [Colors.white, Color(0xff000070), Colors.white];
+      }
+      break;
+      case 2: {
+        _navBarIconColors = [Colors.white, Colors.white, Color(0xff000070)];
+      }
+      break;
+    }
+    notifyListeners();
+  }
+
   final GoogleSignIn _googleSignIn = GoogleSignIn();
   GoogleSignIn get googleSignIn => _googleSignIn;
 
@@ -63,11 +100,6 @@ class LoginInfo extends ChangeNotifier {
   void signOutGoogle() async {
     await _googleSignIn.signOut();
     dropUserData();
-  }
-
-  void changeLoginStatus() {
-    _isLoggedIn = !_isLoggedIn;
-    notifyListeners();
   }
 }
 
