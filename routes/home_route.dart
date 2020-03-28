@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:noname/main.dart';
 import 'login_route.dart';
+import 'package:bubbled_navigation_bar/bubbled_navigation_bar.dart';
 
 class HomeRoute extends StatelessWidget {
   @override
@@ -41,23 +41,43 @@ class HomeRouteDisplay extends StatelessWidget {
                       ]
                     ),
                     onPressed: () => Navigator.pushNamed(context, "/profile")
+                  ),
+                  FlatButton(
+                    child: Row(
+                      children: <Widget>[
+                        Icon(Icons.person_outline, color: Colors.white, size: 25.0),
+                        Padding(padding: const EdgeInsets.symmetric(horizontal: 5.0)),
+                        Text("Sign Out", style: TextStyle(fontFamily: "IBMPlexSans", fontSize: 20.0, color: Colors.white))
+                      ]
+                    ),
+                    onPressed: () {
+                      loginInfo.signOutGoogle();
+                      loginInfo.changeLoginStatus();
+                    }
                   )
                 ]
               ),
               padding: const EdgeInsets.only(left: 10.0, top: 20.0)
             )
-          ),
-          body: Center(
-            child: RaisedButton(
-              child: Text("Sign Out", style: TextStyle(fontFamily: "IBMPlexSans", fontSize: 22.0, color: Colors.white)),
-              padding: const EdgeInsets.symmetric(vertical: 13.0, horizontal: 16.0),
-              color: Color(0xff000070),
-              elevation: 2.5,
-              onPressed: () {
-                loginInfo.signOutGoogle();
-                loginInfo.changeLoginStatus();
-              }
-            )
+          ), 
+          bottomNavigationBar: BubbledNavigationBar(
+            defaultBubbleColor: Colors.white,
+            onTap: (index) {
+              print("Current Index $index");
+            },
+            items: <BubbledNavigationBarItem>[
+              BubbledNavigationBarItem(
+                icon: Icon(Icons.home, color: Colors.white, size: 30.0),
+                activeIcon: Icon(Icons.home, color: Color(0xff000070), size: 30.0),
+                title: Text("Home", style: TextStyle(fontFamily: "IBMPlexSans", color: Color(0xff000070), fontSize: 20.0))
+              ),
+              BubbledNavigationBarItem(
+                icon: Icon(Icons.search, color: Colors.white, size: 30.0),
+                activeIcon: Icon(Icons.search, color: Color(0xff000070), size: 30.0),
+                title: Text("Search", style: TextStyle(fontFamily: "IBMPlexSans", color: Color(0xff000070), fontSize: 20.0))
+              ),
+            ],
+            backgroundColor: Color(0xff000070),
           )
         );
       },

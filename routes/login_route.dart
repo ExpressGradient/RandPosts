@@ -25,7 +25,6 @@ class LoginRoute extends StatelessWidget {
                 Text("For first time users", style: TextStyle(fontFamily: "IBMPlexSans", fontSize: 15.0, color: Color(0xff000070))),
                 RegisterButton()
               ],
-              mainAxisAlignment: MainAxisAlignment.center
             )
           )
         );
@@ -39,7 +38,7 @@ class Title extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Text("RandPosts", style: TextStyle(fontFamily: "IBMPlexSans", color: Color(0xff000070), fontSize: 40.0, fontWeight: FontWeight.w600)),
-      margin: const EdgeInsets.only(bottom: 100.0)
+      margin: const EdgeInsets.only(bottom: 190.0, top: 20.0)
     );
   }
 }
@@ -74,6 +73,7 @@ class LoginButton extends StatelessWidget {
         content: Text("Successful Login", style: TextStyle(fontFamily: "IBMPlexSans", fontSize: 20.0, color: Colors.white)),
         backgroundColor: Color(0xff000070)
       ));
+      print(loginInfo.userData);
       Future.delayed(Duration(seconds: 2), () => loginInfo.changeLoginStatus());
     } else {
       Scaffold.of(context).showSnackBar(SnackBar(
