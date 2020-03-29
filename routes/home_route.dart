@@ -73,6 +73,11 @@ class HomeRouteDisplay extends StatelessWidget {
               loginInfo.toggleIconColor(index);
             } 
           ),
+          floatingActionButton: FloatingActionButton(
+            child: Icon(Icons.add, color: Colors.white, size: 25.0),
+            backgroundColor: Color(0xff000070),
+            onPressed: () => Navigator.pushNamed(context, "/post")
+          )
         );
       },
     );

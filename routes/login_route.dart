@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_auth_buttons/flutter_auth_buttons.dart';
 import 'package:noname/main.dart';
 
 class LoginRoute extends StatelessWidget {
@@ -88,12 +89,10 @@ class LoginButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<LoginInfo>(
       builder: (BuildContext context, LoginInfo loginInfo, Widget child) {
-        return RaisedButton(
-          child: Text("Sign In with Google", style: TextStyle(fontFamily: "IBMPlexSans", fontSize: 22.0, color: Colors.white)),
-          color: Color(0xff000070),
-          padding: const EdgeInsets.symmetric(vertical: 13.0, horizontal: 16.0),
+        return GoogleSignInButton(
           onPressed: () => _signIn(context, loginInfo),
-          elevation: 2.5
+          darkMode: true,
+          textStyle: TextStyle(fontFamily: "IBMPlexSans", color: Colors.white, fontSize: 22.0)
         );
       }
     );

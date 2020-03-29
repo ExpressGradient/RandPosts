@@ -4,6 +4,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import "package:noname/routes/home_route.dart";
 import 'package:noname/routes/profile_route.dart';
 import 'package:noname/routes/profile_edit_route.dart';
+import 'package:noname/routes/post_content.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
         initialRoute: "/",
         routes: {
           "/": (context) => HomeRoute(),
+          "/post": (context) => PostContent(),
           "/profile": (context) => ProfileRoute(),
           "/profile/edit": (context) => ProfileEditRoute()
         }
